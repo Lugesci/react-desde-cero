@@ -2,6 +2,21 @@ import React from 'react';
 import Curso from './Curso'
 import "./styles/styles.scss";
 
+const cursos = [
+  {
+    'title': 'React desde cero',
+    'image': 'algo.jpg',
+    'price': 30,
+    'profesor': 'Beto Quiroga'
+  },
+  {
+    'title': 'Go desde cero',
+    'image': 'algo2.jpg',
+    'price': 0,
+    'profesor': 'Alvaro Felipe'
+  }
+];
+
 /* function App() {
   return (
     <div className="App">
@@ -26,11 +41,9 @@ import "./styles/styles.scss";
 const App = () => (
   <>
     <div className="ed-grid m-grid-3">
-      <Curso />
-      <Curso />
-      <Curso />
-      <Curso />
-      <Curso />
+      {
+        cursos.map(curso => <Curso title={curso.title} image={curso.image} price={curso.price} profesor={curso.profesor} />)
+      }
     </div>
   </>
 );
