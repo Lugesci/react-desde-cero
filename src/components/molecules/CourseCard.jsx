@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Curso = ({title, image, price, profesor}) => (
+const CourseCard = ({id, title, image, price, professor}) => (
   <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
       <img src={image} alt={title} />
@@ -15,28 +16,28 @@ const Curso = ({title, image, price, profesor}) => (
               <img src="https://edteam-media.s3.amazonaws.com/courses/original/91e149d0-961a-4594-a8ff-0a625be9cdd2.png" alt="Curso GO" />
             </div>
           </div>
-          <span className="small">{profesor}</span>
+          <span className="small">{professor}</span>
         </div>
       </div>
       <div className="s-main-center">
-        <a className="button--ghost-alert button--tiny" href="#"> {`$ ${price} USD`} </a>
+        <Link className="button--ghost-alert button--tiny" to={`/cursos/${id}`}> {`$ ${price} USD`} </Link>
       </div>
     </div>
   </article>
 );
 
-Curso.propTypes = {
+CourseCard.propTypes = {
   title: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,
-  profesor: PropTypes.string,
+  professor: PropTypes.string,
 }
 
-Curso.defaultProps = {
+CourseCard.defaultProps = {
   title: 'No se encontró título',
   image: '',
   price: '0',
-  profesor: '',
+  professor: '',
 }
 
-export default Curso;
+export default CourseCard;
